@@ -6,6 +6,7 @@ const studentForm = document.getElementById("studentForm");
 const studentName = document.getElementById("studentName");
 const studentEmail = document.getElementById("studentEmail");
 const studentMarks = document.getElementById("studentMarks");
+const message = document.getElementById("message");
 
 // selescting the student table
 const studentTableBody = document.getElementById("studentTableBody");
@@ -21,13 +22,17 @@ let email = studentEmail.value.trim();
 let marks = Number(studentMarks.value);
 // validate the students marks
 if(name ===""){
-    console.log("Please enter the student name");
+    //console.log("Please enter the student name");
+    message.textContent = "Please enter the student name"
+    message.className = "error"
     return;
 }
 
 // validate students marks
 if(marks < 0 || marks > 100){
-    console.log("marks must be between 0 and 100")
+    //console.log("marks must be between 0 and 100")
+    message.textContent = "Marks must be between 0 and 100"
+    message.className = "error"
     return;
 }
 
@@ -91,6 +96,12 @@ studentTableBody.appendChild(row);
 // clearing the form after registration
 studentForm.reset();
 
+// adding row to the table
+studentTableBody.appendChild(row)
+
+// displaying success message
+message.textContent = "student added successfully"
+message.className = "success"
 
 
 
