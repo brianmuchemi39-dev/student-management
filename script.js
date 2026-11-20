@@ -58,6 +58,16 @@ let emailCell = document.createElement("td");
 let marksCell = document.createElement("td");
 let gradeCell = document.createElement("td");
 let actionCell = document.createElement("td");
+let deleteButton = document.createElement("td")
+
+// giving the button text
+deleteButton.textContent = "Delete"
+
+// listening for a click
+deleteButton.addEventListener("click", function(){
+    row.remove();
+});
+
 
 // adding information to the cells
 nameCell.textContent = name;
@@ -71,12 +81,20 @@ row.appendChild(emailCell);
 row.appendChild(marksCell);
 row.appendChild(gradeCell);
 row.appendChild(actionCell);
+// Adding the button to the action cell
+
+actionCell.appendChild(deleteButton)
 
 // adding the row to the student table
 studentTableBody.appendChild(row);
 
 // clearing the form after registration
 studentForm.reset();
+
+
+
+
+
 
 
 console.log(grade);
@@ -86,3 +104,4 @@ console.log(email);
 console.log(marks);
 
 })
+
